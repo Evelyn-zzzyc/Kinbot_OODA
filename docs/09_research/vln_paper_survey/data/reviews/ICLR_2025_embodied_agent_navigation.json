@@ -1,7 +1,7 @@
 {
   "paper_id": "ICLR_2025_embodied_agent_navigation",
   "stage": "screening",
-  "reviewed_at": "2026-03-26T07:56:11.486684Z",
+  "reviewed_at": "2026-03-26T08:25:21.385143Z",
   "summary": "Paper about Embodied Agent Navigation with Language Grounding...",
   "screening_score": 0.4,
   "screening_rationale": "Keyword-based scoring (Claude API not configured)"

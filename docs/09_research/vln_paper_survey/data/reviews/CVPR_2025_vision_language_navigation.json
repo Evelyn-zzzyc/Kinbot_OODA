@@ -1,7 +1,7 @@
 {
   "paper_id": "CVPR_2025_vision_language_navigation",
   "stage": "screening",
-  "reviewed_at": "2026-03-26T07:56:11.486506Z",
+  "reviewed_at": "2026-03-26T08:25:21.385014Z",
   "summary": "Paper about Vision-Language Navigation with Multimodal Transfo...",
   "screening_score": 0.2,
   "screening_rationale": "Keyword-based scoring (Claude API not configured)"

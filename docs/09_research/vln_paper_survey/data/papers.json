@@ -15,7 +15,7 @@
       "pdf_url": "",
       "doi": "10.1234/test1",
       "keywords": [],
-      "discovered_at": "2026-03-26T07:56:11.486335Z",
+      "discovered_at": "2026-03-26T08:25:21.384809Z",
       "stage": "screening",
       "screening_score": 0.2,
       "relevance_to_kinbot": null
@@ -33,12 +33,12 @@
       "pdf_url": "",
       "doi": "10.1234/test2",
       "keywords": [],
-      "discovered_at": "2026-03-26T07:56:11.486344Z",
+      "discovered_at": "2026-03-26T08:25:21.384815Z",
       "stage": "screening",
       "screening_score": 0.4,
       "relevance_to_kinbot": null
     }
   ],
-  "last_updated": "2026-03-26T07:56:11.486834Z",
+  "last_updated": "2026-03-26T08:25:21.385244Z",
   "last_run_venues_checked": []
 }
