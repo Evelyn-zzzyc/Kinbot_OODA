@@ -475,13 +475,15 @@ def main():
     print("\n[Stage E] Committing changes...")
     try:
         import subprocess
-        from datetime import datetime
         os.chdir(BASE_DIR.parent.parent.parent)  # Go to repo root
 
-        # Create new branch
-        branch_name = f"vln-survey-{datetime.now().strftime('%Y%m%d-%H%M%S')}"
-        subprocess.run(["git", "checkout", "-b", branch_name], check=True)
-        print(f"Created branch: {branch_name}")
+        # Switch to or create vln-survey branch
+        result = subprocess.run(["git", "checkout", "vln-survey"], capture_output=True)
+        if result.returncode != 0:
+            subprocess.run(["git", "checkout", "-b", "vln-survey"], check=True)
+            print("Created branch: vln-survey")
+        else:
+            print("Switched to branch: vln-survey")
 
         subprocess.run(["git", "add", "docs/09_research/vln_paper_survey/"], check=True)
         commit_msg = f"vln-survey: add {len(new_papers_unique)} papers, screen {screened_count}"
