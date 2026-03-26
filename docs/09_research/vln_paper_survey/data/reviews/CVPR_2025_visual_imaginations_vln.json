@@ -1,0 +1,9 @@
+{
+  "paper_id": "CVPR_2025_visual_imaginations_vln",
+  "stage": "screening",
+  "reviewed_at": "2026-03-26T08:30:00Z",
+  "summary": "使用文本到图像扩散模型生成视觉想象，作为额外模态提升 VLN 性能",
+  "screening_score": 0.88,
+  "screening_rationale": "创新的多模态方法，通过视觉想象增强导航理解，对 Kinbot 的视觉推理有借鉴价值",
+  "relevance_to_kinbot": "high"
+}

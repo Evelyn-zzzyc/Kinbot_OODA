@@ -1,0 +1,8 @@
+{
+  "paper_id": "Annual Meeting of the Association for Computational Linguistics_2025_navrag_generating_user",
+  "stage": "screening",
+  "reviewed_at": "2026-03-26T08:35:56.863533Z",
+  "summary": "Paper about NavRAG: Generating User Demand Instructions for Em...",
+  "screening_score": 0.6,
+  "screening_rationale": "Keyword-based scoring (Claude API not configured)"
+}

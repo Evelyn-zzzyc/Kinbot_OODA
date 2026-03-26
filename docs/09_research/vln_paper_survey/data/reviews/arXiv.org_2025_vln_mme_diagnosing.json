@@ -1,0 +1,8 @@
+{
+  "paper_id": "arXiv.org_2025_vln_mme_diagnosing",
+  "stage": "screening",
+  "reviewed_at": "2026-03-26T08:35:56.865911Z",
+  "summary": "Paper about VLN-MME: Diagnosing MLLMs as Language-guided Visua...",
+  "screening_score": 0.6,
+  "screening_rationale": "Keyword-based scoring (Claude API not configured)"
+}

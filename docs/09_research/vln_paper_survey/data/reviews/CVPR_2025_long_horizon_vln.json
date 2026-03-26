@@ -1,0 +1,9 @@
+{
+  "paper_id": "CVPR_2025_long_horizon_vln",
+  "stage": "screening",
+  "reviewed_at": "2026-03-26T08:30:00Z",
+  "summary": "提出长时程视觉语言导航任务，包含数据生成平台、大规模基准测试和动态记忆模块",
+  "screening_score": 0.95,
+  "screening_rationale": "核心 VLN 方法论，解决多阶段长时程导航问题，与 Kinbot 长期任务执行高度相关",
+  "relevance_to_kinbot": "high"
+}
