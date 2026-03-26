@@ -204,31 +204,6 @@
       "relevance_to_kinbot": null
     },
     {
-      "id": "Computer Vision and Pattern Recognition_2024_roomtour3d_geometry_aware",
-      "title": "RoomTour3D: Geometry-Aware Video-Instruction Tuning for Embodied Navigation",
-      "authors": [
-        "Mingfei Han",
-        "Liang Ma",
-        "Kamila Zhumakhanova",
-        "Ekaterina Radionova",
-        "Jingyi Zhang",
-        "Xiaojun Chang",
-        "Xiaodan Liang",
-        "Ivan Laptev"
-      ],
-      "venue": "Computer Vision and Pattern Recognition",
-      "year": 2024,
-      "abstract": "Vision-And-Language Navigation (VLN) suffers from the limited diversity and scale of training data, primarily constrained by the manual curation of existing simulators. To address this, we introduce RoomTour3D, a video-instruction dataset derived from web-based room tour videos that capture real-world indoor spaces and human walking demonstrations. Unlike existing VLN datasets, RoomTour3D leverages the scale and diversity of online videos to generate open-ended human walking trajectories and open-world navigable instructions. To compensate for the lack of navigation data in online videos, we perform 3D reconstruction and obtain 3D trajectories of walking paths augmented with additional information on the room types, object locations and 3D shape of surrounding scenes. Our dataset includes ~100K open-ended description-enriched trajectories with ~200K instructions, and 17K action-enriched trajectories from 1847 room tour environments. We demonstrate experimentally that RoomTour3D enables significant improvements across multiple VLN tasks including CVDN, SOON, R2R, and REVERIE. Moreover, Room-Tour3D facilitates the development of trainable zero-shot VLN agents, showcasing the potential and challenges of advancing towards open-world navigation.",
-      "url": "https://www.semanticscholar.org/paper/b2084602968b0910c99680169b3d5e5934122554",
-      "pdf_url": "2412.08591",
-      "doi": "10.1109/CVPR52734.2025.02569",
-      "keywords": [],
-      "discovered_at": "2026-03-26T08:35:56.860790Z",
-      "stage": "screening",
-      "screening_score": 0.6,
-      "relevance_to_kinbot": null
-    },
-    {
       "id": "arXiv.org_2025_rethinking_the_embodied",
       "title": "Rethinking the Embodied Gap in Vision-and-Language Navigation: A Holistic Study of Physical and Visual Disparities",
       "authors": [
@@ -460,51 +435,6 @@
       "doi": "",
       "keywords": [],
       "discovered_at": "2026-03-26T08:35:56.860844Z",
-      "stage": "screening",
-      "screening_score": 0.6,
-      "relevance_to_kinbot": null
-    },
-    {
-      "id": "arXiv.org_2024_navagent_multi_scale",
-      "title": "NavAgent: Multi-scale Urban Street View Fusion For UAV Embodied Vision-and-Language Navigation",
-      "authors": [
-        "Youzhi Liu",
-        "Fanglong Yao",
-        "Yuanchang Yue",
-        "Guangluan Xu",
-        "Xian Sun",
-        "Kun Fu"
-      ],
-      "venue": "arXiv.org",
-      "year": 2024,
-      "abstract": "Vision-and-Language Navigation (VLN), as a widely discussed research direction in embodied intelligence, aims to enable embodied agents to navigate in complicated visual environments through natural language commands. Most existing VLN methods focus on indoor ground robot scenarios. However, when applied to UAV VLN in outdoor urban scenes, it faces two significant challenges. First, urban scenes contain numerous objects, which makes it challenging to match fine-grained landmarks in images with complex textual descriptions of these landmarks. Second, overall environmental information encompasses multiple modal dimensions, and the diversity of representations significantly increases the complexity of the encoding process. To address these challenges, we propose NavAgent, the first urban UAV embodied navigation model driven by a large Vision-Language Model. NavAgent undertakes navigation tasks by synthesizing multi-scale environmental information, including topological maps (global), panoramas (medium), and fine-grained landmarks (local). Specifically, we utilize GLIP to build a visual recognizer for landmark capable of identifying and linguisticizing fine-grained landmarks. Subsequently, we develop dynamically growing scene topology map that integrate environmental information and employ Graph Convolutional Networks to encode global environmental data. In addition, to train the visual recognizer for landmark, we develop NavAgent-Landmark2K, the first fine-grained landmark dataset for real urban street scenes. In experiments conducted on the Touchdown and Map2seq datasets, NavAgent outperforms strong baseline models. The code and dataset will be released to the community to facilitate the exploration and development of outdoor VLN.",
-      "url": "https://www.semanticscholar.org/paper/2b28230315cc1aea69417243d54e5b2933ed0dbd",
-      "pdf_url": "2411.08579",
-      "doi": "10.48550/arXiv.2411.08579",
-      "keywords": [],
-      "discovered_at": "2026-03-26T08:35:56.860850Z",
-      "stage": "screening",
-      "screening_score": 0.6,
-      "relevance_to_kinbot": null
-    },
-    {
-      "id": "arXiv.org_2024_vision_language_navigation",
-      "title": "Vision-Language Navigation with Embodied Intelligence: A Survey",
-      "authors": [
-        "Peng Gao",
-        "Peng Wang",
-        "Feng Gao",
-        "Fei Wang",
-        "Ruyue Yuan"
-      ],
-      "venue": "arXiv.org",
-      "year": 2024,
-      "abstract": "As a long-term vision in the field of artificial intelligence, the core goal of embodied intelligence is to improve the perception, understanding, and interaction capabilities of agents and the environment. Vision-language navigation (VLN), as a critical research path to achieve embodied intelligence, focuses on exploring how agents use natural language to communicate effectively with humans, receive and understand instructions, and ultimately rely on visual information to achieve accurate navigation. VLN integrates artificial intelligence, natural language processing, computer vision, and robotics. This field faces technical challenges but shows potential for application such as human-computer interaction. However, due to the complex process involved from language understanding to action execution, VLN faces the problem of aligning visual information and language instructions, improving generalization ability, and many other challenges. This survey systematically reviews the research progress of VLN and details the research direction of VLN with embodied intelligence. After a detailed summary of its system architecture and research based on methods and commonly used benchmark datasets, we comprehensively analyze the problems and challenges faced by current research and explore the future development direction of this field, aiming to provide a practical reference for researchers.",
-      "url": "https://www.semanticscholar.org/paper/467730b186e4878d94e04b3833d57e5c81c3cb0a",
-      "pdf_url": "2402.14304",
-      "doi": "10.48550/arXiv.2402.14304",
-      "keywords": [],
-      "discovered_at": "2026-03-26T08:35:56.860855Z",
       "stage": "screening",
       "screening_score": 0.6,
       "relevance_to_kinbot": null
