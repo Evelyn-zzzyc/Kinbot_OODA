@@ -1,0 +1,9 @@
+# PDFs
+pdfs/
+
+# Case study and deployment docs
+OMC_WORKFLOW_CASE_STUDY.md
+DEPLOYMENT.md
+
+# OMC state
+.omc/

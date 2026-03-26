@@ -2,134 +2,153 @@
 
 ## 概述
 
-本目录包含一个全自动的 VLN（视觉语言导航）和 VLA（视觉语言动作）领域论文调研工作流。工作流通过 Claude Code RemoteTrigger 定时执行，自动从顶会论文中筛选、审查和对比最新研究进展。
+全自动 VLN（视觉语言导航）和 VLA（视觉语言动作）领域论文调研工作流。通过 Python + cron 定时执行，自动从顶会论文中筛选、审查和对比最新研究进展。
+
+## 快速开始
+
+### 手动运行
+```bash
+cd docs/09_research/vln_paper_survey
+python3 survey_workflow.py
+```
+
+### 定时运行（cron）
+```bash
+# 每周一上午 9 点执行
+0 9 * * 1 cd /path/to/vln_paper_survey && python3 survey_workflow.py >> cron.log 2>&1
+```
+
+### 查看待深审论文
+```bash
+python3 scripts/list_pending.py
+```
+
+### 下载论文 PDF
+```bash
+python3 scripts/download_pdfs.py
+```
+
+### 深度审查（手动触发）
+```bash
+# 生成审查提示
+python3 scripts/prepare_review.py <paper_id>
+# 将输出的提示发给 Claude，Claude 会生成审查报告
+```
 
 ## 目录结构
 
 ```
 vln_paper_survey/
+├── survey_workflow.py          # 主工作流
+├── conference_dates.json       # 会议时间配置
+├── scripts/
+│   ├── list_pending.py        # 列出待深审论文
+│   ├── prepare_review.py      # 生成审查提示
+│   └── download_pdfs.py       # 下载论文 PDF
 ├── data/
-│   ├── papers.json              # 所有已发现论文的结构化数据
-│   ├── reviews/                 # 单篇审查报告 (JSON)
-│   └── comparison.json          # 跨论文对比数据
+│   ├── papers.json            # 论文数据库
+│   └── reviews/               # 审查报告
+├── pdfs/                      # 论文 PDF（已下载 15/19 篇）
 ├── reports/
-│   ├── latest_screening.md      # 最新一期筛选报告
-│   ├── deep_reviews/            # 深度审查 Markdown
-│   ├── comparison_table.md      # 跨论文对比汇总表
-│   └── changelog.md             # 每次运行的变更记录
-├── trigger_prompt.md            # RemoteTrigger 执行的完整工作流指令
-└── README.md                    # 本文档
+│   ├── latest_screening.md    # 筛选报告
+│   └── changelog.md           # 变更记录
+├── .env                       # 配置文件（Feishu webhook）
+└── .env.example               # 配置模板
 ```
 
-## 工作流说明
+## 时间过滤规则
 
-### 时间过滤规则
+系统只关注 **2025 年 6 月之后** 发表的论文。
 
-本工作流关注 **2025 年 6 月之后** 发表的 VLN/VLA 论文。
-
-**会议时间参考**：
-- ✅ CVPR 2025: 2025年6月11-15日（符合）
-- ✅ NeurIPS 2025: 2025年12月（符合）
-- ❌ ICLR 2025: 2025年4月24-28日（早于6月，已排除）
-- ✅ 2026年所有会议（符合）
+**会议时间配置**（`conference_dates.json`）：
+- ✅ CVPR 2025: 6月11-15日
+- ✅ NeurIPS 2025: 12月
+- ❌ ICLR 2025: 4月（已排除）
+- ✅ 2026年所有会议
 
 **预印本处理**：
-- arXiv/bioRxiv 论文保留作为参考
-- 报告中单独标注"预印本参考"
-- 无法确定正式发表时间的论文会特别标注
+- arXiv 论文保留但标注为"预印本参考"
+- 报告中单独分类显示
 
-### 运行频率
-- 定时执行：每周一上午 9:00（通过 cron）
-- 手动触发：`python3 survey_workflow.py`
+## 工作流程
 
-### 执行流程
+1. **自动搜索**：每周搜索新论文（Semantic Scholar API）
+2. **第一阶段筛选**：关键词匹配评分
+3. **标记待深审**：评分 ≥0.7 的论文
+4. **手动深度审查**：你触发时 Claude 帮你完成
+5. **生成报告**：自动更新 Markdown 报告
+6. **Git 提交**：提交到 `docs/vln-paper-survey` 分支
+7. **飞书通知**：发送运行摘要
 
-**阶段 A — 搜索与发现**
-- 从顶会（CVPR, ICLR, NeurIPS, ICRA, CoRL, ECCV, AAAI, RSS）搜索最新 VLN/VLA 论文
-- 使用 WebSearch + Semantic Scholar API 双源搜索
-- 去重后写入 papers.json
+## 配置说明
 
-**阶段 B — 第一阶段筛选**
-- 对每篇新论文生成结构化摘要
-- 评估相关性打分（0-1）
-- 筛选出 score >= 0.7 的论文进入深审队列
+### .env 文件
 
-**阶段 C — 第二阶段深度审查**
-- 每次运行最多深审 5 篇论文（超出部分排队）
-- 提取技术方案、Benchmark 性能、Kinbot 关联度等维度
-- 生成 JSON 数据 + Markdown 报告
+```bash
+# 飞书通知
+FEISHU_WEBHOOK_URL=https://open.feishu.cn/open-apis/bot/v2/hook/xxx
 
-**阶段 D — 跨论文对比汇总**
-- 生成多维度对比表
-- 更新 comparison_table.md 和 changelog.md
+# 使用真实 API
+USE_TEST_DATA=false
 
-**阶段 E — 提交与通知**
-- Git commit + push 所有变更
-- 输出运行摘要
+# 网络代理（可选）
+http_proxy=http://127.0.0.1:7893
+https_proxy=http://127.0.0.1:7893
+```
 
-### 对比维度
+### conference_dates.json
 
-**核心维度（必填）**：
+添加新会议时间：
+
+```json
+{
+  "conferences": {
+    "新会议名": {
+      "2025": {
+        "date": "2025-XX-XX",
+        "after_june_2025": true/false
+      }
+    }
+  }
+}
+```
+
+## 深度审查流程
+
+1. 运行 `python3 scripts/list_pending.py` 查看待审论文
+2. 选择一篇，运行 `python3 scripts/prepare_review.py <paper_id>`
+3. 将输出的提示发给 Claude
+4. Claude 会生成 JSON 格式的审查报告
+5. 将报告保存到 `data/reviews/<paper_id>.json`
+6. 运行工作流更新报告：`python3 survey_workflow.py`
+
+## 常见问题
+
+**Q: 为什么有些论文是 arXiv？**
+A: arXiv 是预印本，论文可能还未正式发表。系统保留这些论文作为参考，并在报告中单独标注。
+
+**Q: 如何调整筛选阈值？**
+A: 修改 `survey_workflow.py` 中的 `screening_score >= 0.7`。
+
+**Q: 深度审查需要 API key 吗？**
+A: 不需要。深度审查是手动触发，由你和 Claude 协作完成。
+
+**Q: 如何更新会议时间？**
+A: 编辑 `conference_dates.json`，添加或更新会议日期。
+
+## 对比维度
+
+**核心维度**：
 - 技术方案对比
 - Benchmark 性能对比
 - 与 Kinbot 的关联度
 - 工程化可行性
 - 优劣势简评
 
-**可选维度（有数据时填充）**：
+**可选维度**：
 - 真机实验与平台
 - 建图能力
 
-## 如何使用
+## 与 Kinbot 项目的关联
 
-### 查看最新结果
-- 筛选报告：`reports/latest_screening.md`
-- 对比汇总：`reports/comparison_table.md`
-- 变更记录：`reports/changelog.md`
-
-### 查看单篇论文详情
-- JSON 数据：`data/reviews/{paper_id}.json`
-- Markdown 报告：`reports/deep_reviews/{paper_id}.md`
-
-### 手动触发运行
-使用 RemoteTrigger API 或 Claude Code CLI：
-```bash
-# 查看 trigger 列表
-claude trigger list
-
-# 手动运行
-claude trigger run <trigger_id>
-```
-
-## 技术细节
-
-### 数据 Schema
-- papers.json: schema_version 1.0，包含 DOI 字段用于去重
-- 论文 stage: screening → pending_deep_review → deep_review
-- 单次深审上限 5 篇，超出自动排队
-
-### 容错机制
-- 阶段性 commit：每个阶段完成后立即 commit，失败可恢复
-- 搜索源降级：某个源失败不阻塞流程
-- PDF 获取降级：无法获取 PDF 时降级为页面内容
-
-### 与 Kinbot 项目的关联
-本工作流服务于 Kinbot OODA 项目的 VLN 技术路线（27B Teacher + 4B Student 蒸馏）。审查报告中的"Kinbot 关联度"维度评估每篇论文对项目的可借鉴性和可集成性。
-
-## 维护说明
-
-### 首次部署
-1. 确保已完成 `claude login` 认证
-2. 使用 RemoteTrigger API 创建定时任务
-3. 手动触发一次验证流程
-
-### 调整筛选阈值
-如果发现筛选过严或过松，可在 trigger_prompt.md 中调整 `screening_score >= 0.7` 的阈值。
-
-### 调整深审数量
-如果需要加快或减慢深审速度，可在 trigger_prompt.md 阶段 C 中调整单次上限（当前 5 篇）。
-
-## 相关文档
-- 实施计划：`../../.omc/plans/ralplan-vln-paper-workflow.md`
-- 需求规格：`../../.omc/specs/deep-interview-vln-paper-workflow.md`
-- VLN 技术路线：`../vln_model_design/kinbot_vln_model_detailed_design.md`
+本工作流服务于 Kinbot OODA 项目的 VLN 技术路线。审查报告中的"Kinbot 关联度"维度评估每篇论文对项目的可借鉴性和可集成性。
