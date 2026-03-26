@@ -26,7 +26,7 @@
       ],
       "discovered_at": "2026-03-26T08:30:00Z",
       "stage": "pending_deep_review",
-      "screening_score": 0.95,
+      "screening_score": 0.7,
       "relevance_to_kinbot": "high"
     },
     {
@@ -51,7 +51,7 @@
       ],
       "discovered_at": "2026-03-26T08:30:00Z",
       "stage": "pending_deep_review",
-      "screening_score": 0.88,
+      "screening_score": 0.7,
       "relevance_to_kinbot": "high"
     },
     {
@@ -75,8 +75,8 @@
       "doi": "10.48550/arXiv.2506.09839",
       "keywords": [],
       "discovered_at": "2026-03-26T08:35:56.860739Z",
-      "stage": "screening",
-      "screening_score": 0.6,
+      "stage": "pending_deep_review",
+      "screening_score": 0.75,
       "relevance_to_kinbot": null
     },
     {
@@ -97,8 +97,8 @@
       "doi": "10.48550/arXiv.2506.17221",
       "keywords": [],
       "discovered_at": "2026-03-26T08:35:56.860753Z",
-      "stage": "screening",
-      "screening_score": 0.6,
+      "stage": "pending_deep_review",
+      "screening_score": 0.77,
       "relevance_to_kinbot": null
     },
     {
@@ -118,8 +118,8 @@
       "doi": "10.48550/arXiv.2502.11142",
       "keywords": [],
       "discovered_at": "2026-03-26T08:35:56.860761Z",
-      "stage": "screening",
-      "screening_score": 0.6,
+      "stage": "pending_deep_review",
+      "screening_score": 0.82,
       "relevance_to_kinbot": null
     },
     {
@@ -143,8 +143,8 @@
       "doi": "10.48550/arXiv.2511.14161",
       "keywords": [],
       "discovered_at": "2026-03-26T08:35:56.860770Z",
-      "stage": "screening",
-      "screening_score": 0.6,
+      "stage": "pending_deep_review",
+      "screening_score": 0.75,
       "relevance_to_kinbot": null
     },
     {
@@ -171,8 +171,8 @@
       "doi": "10.48550/arXiv.2510.21307",
       "keywords": [],
       "discovered_at": "2026-03-26T08:35:56.860777Z",
-      "stage": "screening",
-      "screening_score": 0.6,
+      "stage": "pending_deep_review",
+      "screening_score": 0.75,
       "relevance_to_kinbot": null
     },
     {
@@ -199,8 +199,8 @@
       "doi": "10.48550/arXiv.2506.01551",
       "keywords": [],
       "discovered_at": "2026-03-26T08:35:56.860784Z",
-      "stage": "screening",
-      "screening_score": 0.4,
+      "stage": "pending_deep_review",
+      "screening_score": 0.7,
       "relevance_to_kinbot": null
     },
     {
@@ -225,8 +225,8 @@
       "doi": "10.48550/arXiv.2507.13019",
       "keywords": [],
       "discovered_at": "2026-03-26T08:35:56.860797Z",
-      "stage": "screening",
-      "screening_score": 0.6,
+      "stage": "pending_deep_review",
+      "screening_score": 0.7,
       "relevance_to_kinbot": null
     },
     {
@@ -252,8 +252,8 @@
       "doi": "10.48550/arXiv.2509.13733",
       "keywords": [],
       "discovered_at": "2026-03-26T08:35:56.860804Z",
-      "stage": "screening",
-      "screening_score": 0.6,
+      "stage": "pending_deep_review",
+      "screening_score": 0.77,
       "relevance_to_kinbot": null
     },
     {
@@ -271,8 +271,8 @@
       "doi": "10.48550/arXiv.2504.08806",
       "keywords": [],
       "discovered_at": "2026-03-26T08:35:56.860810Z",
-      "stage": "screening",
-      "screening_score": 0.6,
+      "stage": "pending_deep_review",
+      "screening_score": 0.75,
       "relevance_to_kinbot": null
     },
     {
@@ -291,8 +291,8 @@
       "doi": "10.48550/arXiv.2512.24851",
       "keywords": [],
       "discovered_at": "2026-03-26T08:35:56.860815Z",
-      "stage": "screening",
-      "screening_score": 0.6,
+      "stage": "pending_deep_review",
+      "screening_score": 0.85,
       "relevance_to_kinbot": null
     },
     {
@@ -326,8 +326,8 @@
       "doi": "10.59717/j.xinn-inform.2025.100015",
       "keywords": [],
       "discovered_at": "2026-03-26T08:35:56.860822Z",
-      "stage": "screening",
-      "screening_score": 0.6,
+      "stage": "pending_deep_review",
+      "screening_score": 0.77,
       "relevance_to_kinbot": null
     },
     {
@@ -356,8 +356,8 @@
       "doi": "10.48550/arXiv.2512.19021",
       "keywords": [],
       "discovered_at": "2026-03-26T08:35:56.860828Z",
-      "stage": "screening",
-      "screening_score": 0.6,
+      "stage": "pending_deep_review",
+      "screening_score": 0.7,
       "relevance_to_kinbot": null
     },
     {
@@ -377,8 +377,8 @@
       "doi": "10.48550/arXiv.2512.08639",
       "keywords": [],
       "discovered_at": "2026-03-26T08:35:56.860833Z",
-      "stage": "screening",
-      "screening_score": 0.6,
+      "stage": "pending_deep_review",
+      "screening_score": 0.72,
       "relevance_to_kinbot": null
     },
     {
@@ -407,8 +407,8 @@
       "doi": "",
       "keywords": [],
       "discovered_at": "2026-03-26T08:35:56.860839Z",
-      "stage": "screening",
-      "screening_score": 0.6,
+      "stage": "pending_deep_review",
+      "screening_score": 0.7,
       "relevance_to_kinbot": null
     },
     {
@@ -435,8 +435,8 @@
       "doi": "",
       "keywords": [],
       "discovered_at": "2026-03-26T08:35:56.860844Z",
-      "stage": "screening",
-      "screening_score": 0.6,
+      "stage": "pending_deep_review",
+      "screening_score": 0.77,
       "relevance_to_kinbot": null
     },
     {
@@ -457,8 +457,8 @@
       "doi": "10.48550/arXiv.2601.18492",
       "keywords": [],
       "discovered_at": "2026-03-26T08:35:56.860861Z",
-      "stage": "screening",
-      "screening_score": 0.6,
+      "stage": "pending_deep_review",
+      "screening_score": 0.77,
       "relevance_to_kinbot": null
     },
     {
@@ -476,8 +476,8 @@
       "doi": "",
       "keywords": [],
       "discovered_at": "2026-03-26T08:35:56.860867Z",
-      "stage": "screening",
-      "screening_score": 0.6,
+      "stage": "pending_deep_review",
+      "screening_score": 0.7,
       "relevance_to_kinbot": null
     }
   ],
