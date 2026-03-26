@@ -22,7 +22,28 @@ if env_file.exists():
 DATA_DIR = BASE_DIR / "data"
 REPORTS_DIR = BASE_DIR / "reports"
 PAPERS_JSON = DATA_DIR / "papers.json"
+CONFERENCE_DATES_JSON = BASE_DIR / "conference_dates.json"
 FEISHU_WEBHOOK = os.getenv("FEISHU_WEBHOOK_URL", "")
+
+def load_conference_dates():
+    """Load conference dates configuration"""
+    try:
+        with open(CONFERENCE_DATES_JSON, "r") as f:
+            return json.load(f)
+    except:
+        return {"conferences": {}, "cutoff_date": "2025-06-01"}
+
+def is_after_cutoff(venue, year):
+    """Check if conference is after June 2025 cutoff"""
+    conf_data = load_conference_dates()
+    if year >= 2026:
+        return True
+    if venue in conf_data["conferences"]:
+        year_data = conf_data["conferences"][venue].get(str(year))
+        if year_data:
+            return year_data.get("after_june_2025", None)
+    return None
+
 
 def load_papers():
     """Load and validate papers.json"""

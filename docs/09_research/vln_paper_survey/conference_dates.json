@@ -1,0 +1,60 @@
+{
+  "conferences": {
+    "CVPR": {
+      "2025": {
+        "date": "2025-06-11",
+        "end_date": "2025-06-15",
+        "location": "Nashville, TN",
+        "after_june_2025": true
+      }
+    },
+    "NeurIPS": {
+      "2025": {
+        "date": "2025-12-02",
+        "end_date": "2025-12-07",
+        "location": "San Diego, CA / Mexico City, MX",
+        "after_june_2025": true
+      }
+    },
+    "ICLR": {
+      "2025": {
+        "date": "2025-04-24",
+        "end_date": "2025-04-28",
+        "location": "Singapore",
+        "after_june_2025": false
+      }
+    },
+    "ICRA": {
+      "2025": {
+        "date": "TBD",
+        "after_june_2025": null
+      }
+    },
+    "CoRL": {
+      "2025": {
+        "date": "TBD",
+        "after_june_2025": null
+      }
+    },
+    "ECCV": {
+      "2024": {
+        "date": "2024-09-29",
+        "after_june_2025": false
+      }
+    },
+    "AAAI": {
+      "2025": {
+        "date": "TBD",
+        "after_june_2025": null
+      }
+    },
+    "RSS": {
+      "2025": {
+        "date": "TBD",
+        "after_june_2025": null
+      }
+    }
+  },
+  "cutoff_date": "2025-06-01",
+  "last_updated": "2026-03-26"
+}
