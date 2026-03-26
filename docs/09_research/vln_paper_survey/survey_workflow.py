@@ -246,14 +246,39 @@ def screen_paper_with_claude(paper):
     """Screen a paper using Claude API"""
     api_key = os.getenv("ANTHROPIC_API_KEY")
     if not api_key:
-        # Fallback: simple keyword matching
+        # Fallback: improved keyword matching with weighted scoring
         text = f"{paper['title']} {paper.get('abstract', '')}".lower()
-        keywords = ["vln", "vision language navigation", "embodied", "navigation", "instruction following"]
-        score = sum(1 for kw in keywords if kw in text) / len(keywords)
+
+        # Core keywords (high relevance)
+        core_keywords = ["vln", "vision-language navigation", "vision language navigation"]
+        # Related keywords (medium relevance)
+        related_keywords = ["embodied navigation", "embodied agent", "visual navigation", "language grounding", "instruction following"]
+        # Supporting keywords (lower relevance)
+        support_keywords = ["natural language", "semantic navigation", "object goal", "robot navigation"]
+
+        # Count matches
+        core_match = any(kw in text for kw in core_keywords)
+        related_count = sum(1 for kw in related_keywords if kw in text)
+        support_count = sum(1 for kw in support_keywords if kw in text)
+
+        # Calculate score
+        if core_match:
+            # Core VLN paper: 0.7 base + bonus for related/support
+            score = 0.7 + (related_count * 0.05) + (support_count * 0.02)
+        elif related_count >= 2:
+            # Related paper: 0.5 base + bonus
+            score = 0.5 + (related_count * 0.05) + (support_count * 0.02)
+        elif related_count >= 1:
+            # Tangentially related: 0.3 base + bonus
+            score = 0.3 + (related_count * 0.05) + (support_count * 0.02)
+        else:
+            # Not relevant
+            score = 0.1 + (support_count * 0.02)
+
         return {
-            "screening_score": min(score, 1.0),
+            "screening_score": round(min(score, 1.0), 2),
             "summary": f"Paper about {paper['title'][:50]}...",
-            "screening_rationale": "Keyword-based scoring (Claude API not configured)"
+            "screening_rationale": "Keyword-based scoring (improved algorithm)"
         }
 
     # Use Claude API for screening

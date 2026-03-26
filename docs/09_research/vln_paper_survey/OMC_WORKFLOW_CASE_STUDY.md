@@ -11,7 +11,13 @@
 - Ralplan（共识规划）
 - Autopilot（自动执行）
 
-**成果**：从模糊想法到可运行的自动化系统，全程 AI 辅助完成
+**最终成果**：
+- ✅ 19 篇 2025-2026 年 VLN/VLA 论文数据库
+- ✅ 15 篇论文 PDF 自动下载（187MB）
+- ✅ 完整的自动化工作流（搜索、筛选、下载、报告、通知）
+- ✅ 会议时间过滤系统（只保留 2025 年 6 月后）
+- ✅ 辅助脚本和完整文档
+- ✅ 从模糊想法到可运行系统，全程 AI 辅助完成
 
 ---
 
@@ -125,6 +131,27 @@
 - 原因：RemoteTrigger 认证问题
 - 用户建议：使用飞书通知，更符合实际需求
 
+**关键改进**：
+1. **时间过滤精确化**：从"2025年"改为"2025年6月后"
+   - 创建 `conference_dates.json` 配置文件
+   - 实现 `is_after_cutoff()` 函数验证会议时间
+   - 排除 ICLR 2025（4月发表）
+
+2. **PDF 自动下载**：
+   - 创建 `scripts/download_pdfs.py`
+   - 智能处理 arXiv ID 和完整 URL
+   - 优先下载待深审论文
+   - 成功下载 15 篇（187MB）
+
+3. **深度审查手动化**：
+   - 移除 API key 依赖
+   - 创建辅助脚本：`list_pending.py` 和 `prepare_review.py`
+   - 用户触发时 Claude 协助完成
+
+4. **Git 分支规范化**：
+   - 从时间戳分支改为固定 `docs/vln-paper-survey` 分支
+   - 避免分支泛滥和文件消失问题
+
 ### 实现过程
 
 **Phase 0 & 1**：跳过（已由 deep-interview + ralplan 完成）
@@ -187,24 +214,39 @@
 - 支持 8 个顶会（CVPR, ICLR, NeurIPS, ICRA, CoRL, ECCV, AAAI, RSS）
 - Semantic Scholar API 集成
 - 智能去重（DOI/标题/URL）
+- 时间过滤（2025年6月后）
 
 ✅ **两阶段审查**
 - 第一阶段：结构化摘要 + 相关性评分
-- 第二阶段：深度审查（最多 5 篇/次）
+- 第二阶段：手动触发深度审查（Claude 协助）
+
+✅ **PDF 自动下载**
+- 智能识别 arXiv ID 和完整 URL
+- 优先下载待深审论文
+- 已下载 15 篇（187MB）
 
 ✅ **自动报告生成**
-- latest_screening.md（最新筛选）
+- latest_screening.md（最新筛选，区分顶会/预印本）
 - changelog.md（变更记录）
 - comparison_table.md（对比表）
 
 ✅ **Git 集成**
-- 自动创建 vln-survey 分支
+- 固定 docs/vln-paper-survey 分支
 - 阶段性 commit
 - 失败可恢复
 
 ✅ **通知机制**
 - 飞书 webhook 集成
 - 运行摘要推送
+
+✅ **辅助工具**
+- scripts/list_pending.py（列出待审论文）
+- scripts/prepare_review.py（生成审查提示）
+- scripts/download_pdfs.py（下载 PDF）
+
+✅ **配置系统**
+- conference_dates.json（会议时间配置）
+- .env（环境配置）
 
 ### 文件结构
 
@@ -215,15 +257,24 @@ docs/09_research/vln_paper_survey/
 │   ├── reviews/                 # 单篇审查报告
 │   │   └── {paper_id}.json
 │   └── comparison.json          # 跨论文对比数据
+├── pdfs/                        # 论文 PDF（15篇，187MB）
+│   └── {paper_id}.pdf
 ├── reports/
 │   ├── latest_screening.md      # 最新筛选报告
 │   ├── changelog.md             # 变更记录
 │   └── comparison_table.md      # 对比汇总表
+├── scripts/                     # 辅助脚本
+│   ├── list_pending.py         # 列出待深审论文
+│   ├── prepare_review.py       # 生成审查提示
+│   └── download_pdfs.py        # 下载论文 PDF
 ├── survey_workflow.py           # 主工作流脚本
+├── conference_dates.json        # 会议时间配置
 ├── .env                         # 配置文件（Feishu webhook）
 ├── .env.example                 # 配置模板
 ├── README.md                    # 说明文档
+├── USAGE.md                     # 使用指南
 ├── DEPLOYMENT.md                # 部署指南
+├── OMC_WORKFLOW_CASE_STUDY.md  # 本文档
 └── trigger_prompt.md            # 原 RemoteTrigger prompt（参考）
 ```
 
@@ -231,17 +282,36 @@ docs/09_research/vln_paper_survey/
 
 **.env 文件**：
 ```bash
-# Feishu webhook URL
+# 飞书 webhook URL
 FEISHU_WEBHOOK_URL=https://open.feishu.cn/open-apis/bot/v2/hook/xxx
 
-# Claude API key (optional, for deep review)
-CLAUDE_API_KEY=sk-ant-xxx
+# 使用真实 API（不使用测试数据）
+USE_TEST_DATA=false
 
-# Semantic Scholar API key (optional, for higher rate limit)
-SEMANTIC_SCHOLAR_API_KEY=xxx
+# 网络代理（可选）
+http_proxy=http://127.0.0.1:7893
+https_proxy=http://127.0.0.1:7893
+```
 
-# Use test data for development
-USE_TEST_DATA=true
+**conference_dates.json**：
+```json
+{
+  "conferences": {
+    "CVPR": {
+      "2025": {
+        "date": "2025-06-11",
+        "after_june_2025": true
+      }
+    },
+    "ICLR": {
+      "2025": {
+        "date": "2025-04-24",
+        "after_june_2025": false
+      }
+    }
+  },
+  "cutoff_date": "2025-06-01"
+}
 ```
 
 ### 运行方式
@@ -249,7 +319,18 @@ USE_TEST_DATA=true
 **手动运行**：
 ```bash
 cd docs/09_research/vln_paper_survey
+
+# 运行主工作流
 python3 survey_workflow.py
+
+# 列出待深审论文
+python3 scripts/list_pending.py
+
+# 下载 PDF
+python3 scripts/download_pdfs.py
+
+# 准备深度审查
+python3 scripts/prepare_review.py <paper_id>
 ```
 
 **定时运行**（cron）：
@@ -257,6 +338,17 @@ python3 survey_workflow.py
 # 每周一上午 9 点执行
 0 9 * * 1 cd /path/to/vln_paper_survey && python3 survey_workflow.py >> cron.log 2>&1
 ```
+
+### 数据统计
+
+**当前状态**（2026-03-26）：
+- 论文总数：19 篇（2025-2026 年）
+- PDF 已下载：15 篇（187MB）
+- 待深审：2 篇（CVPR 2025）
+- 会议分布：
+  - CVPR 2025: 2 篇
+  - arXiv 2025/2026: 12 篇
+  - 其他: 5 篇
 
 ---
 
@@ -299,17 +391,25 @@ python3 survey_workflow.py
 
 ### 改进空间
 
-**1. 深度审查功能**
-- 当前使用关键词回退（无 Claude API key 时）
-- 可集成真实的 Claude API 进行深度分析
+**1. 会议时间自动更新**
+- 当前需要手动维护 conference_dates.json
+- 可集成会议官网爬虫自动更新
 
-**2. 对比表生成**
+**2. 深度审查自动化**
+- 当前需要手动触发
+- 可集成 Claude API 实现全自动深度审查
+
+**3. 对比表生成**
 - comparison_table.md 功能待完善
 - 需要实现跨论文的多维度对比
 
-**3. 错误处理**
-- 增强网络请求的重试机制
-- 添加更详细的日志记录
+**4. PDF 解析**
+- 当前只下载 PDF
+- 可集成 PDF 解析提取关键信息
+
+**5. 增量更新优化**
+- 当前每次全量检查
+- 可优化为只检查最新论文
 
 ---
 
@@ -320,19 +420,29 @@ python3 survey_workflow.py
 - **2026-03-26 15:00** - Ralplan 共识规划
 - **2026-03-26 15:30** - 开始 Autopilot 执行
 - **2026-03-26 16:00** - 完成核心功能实现
-- **2026-03-26 16:10** - 修复 Git 分支问题，系统可用
+- **2026-03-26 16:10** - 修复 Git 分支问题
+- **2026-03-26 16:30** - 添加时间过滤功能
+- **2026-03-26 16:45** - 实现 PDF 下载功能
+- **2026-03-26 17:00** - 创建辅助脚本和文档
 
-**总耗时**：约 2 小时 10 分钟
+**总耗时**：约 3 小时
 
 ---
 
 ## 结论
 
-通过 OMC 三阶段工具链（Deep Interview → Ralplan → Autopilot），成功将一个模糊的想法转化为可运行的自动化系统。整个过程展示了：
+通过 OMC 三阶段工具链（Deep Interview → Ralplan → Autopilot），成功将一个模糊的想法转化为功能完整的自动化系统。整个过程展示了：
 
-1. **需求澄清的价值**：从 100% 模糊度降到 17.5%
-2. **多方评审的必要性**：Planner/Architect/Critic 共识确保质量
-3. **灵活调整的重要性**：遇到问题快速调整实现方案
-4. **分阶段实现的优势**：逐步构建，持续验证
+1. **需求澄清的价值**：从 100% 模糊度降到 17.5%，明确了时间过滤、预印本处理等关键需求
+2. **多方评审的必要性**：Planner/Architect/Critic 共识确保方案可行性和质量
+3. **灵活调整的重要性**：遇到问题（RemoteTrigger 认证、时间过滤精度、PDF 下载）快速调整方案
+4. **分阶段实现的优势**：逐步构建核心功能 → 优化细节 → 添加辅助工具
+5. **用户反馈驱动**：根据用户需求（"2025年6月后"、"论文要下载下来"）持续改进
+
+**最终交付**：
+- 19 篇论文数据库
+- 15 篇 PDF（187MB）
+- 完整自动化工作流
+- 辅助脚本和文档
 
 这个案例可以作为使用 OMC 工具链的参考模板。

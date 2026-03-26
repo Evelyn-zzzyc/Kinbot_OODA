@@ -32,7 +32,16 @@ python3 scripts/list_pending.py
    评分：0.95
 ```
 
-### 4. 深度审查（手动触发）
+### 4. 下载论文 PDF
+
+```bash
+# 下载所有论文的 PDF（优先下载待深审的）
+python3 scripts/download_pdfs.py
+
+# PDF 保存在 pdfs/ 目录
+```
+
+### 5. 深度审查（手动触发）
 
 ```bash
 # 生成审查提示
