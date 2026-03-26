@@ -1,12 +1,22 @@
 # VLN/VLA 论文筛选报告
 
-生成时间：2026-03-26 10:32:44 UTC
+生成时间：2026-03-26 10:41:28 UTC
 
 ## 统计
 
 - 总论文数：19
 - 待深审：19
 - 已深审：0
+- PDF 已下载：15/19 篇
+
+## PDF 下载状态
+
+⚠️ 缺失 4 篇 PDF：
+
+- **Towards Long-Horizon Vision-Language Navigation: Platform, B...** (CVPR) - No PDF URL
+- **Do Visual Imaginations Improve Vision-and-Language Navigatio...** (CVPR) - No PDF URL
+- **EvolveNav: Self-Improving Embodied Reasoning for LLM-Based V...** (arXiv.org) - No PDF URL
+- **AeroVerse-Review: Comprehensive survey on aerial embodied vi...** (The Innovation Informatics) - No PDF URL
 
 ## 最新论文
 

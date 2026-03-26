@@ -355,6 +355,25 @@ def deep_review_paper_with_claude(paper):
 
 def generate_reports(papers_data):
     """Generate Markdown reports"""
+
+    # Check PDF download status
+    pdf_dir = BASE_DIR / "pdfs"
+    pdf_dir.mkdir(exist_ok=True)
+    total_papers = len(papers_data['papers'])
+    downloaded_count = 0
+    missing_pdfs = []
+
+    for paper in papers_data['papers']:
+        pdf_path = pdf_dir / f"{paper['id']}.pdf"
+        if pdf_path.exists():
+            downloaded_count += 1
+        else:
+            missing_pdfs.append({
+                'title': paper['title'],
+                'venue': paper.get('venue'),
+                'reason': 'No PDF URL' if not paper.get('pdf_url') else 'Download failed'
+            })
+
     # Generate latest_screening.md
     screening_md = f"""# VLN/VLA 论文筛选报告
 
@@ -365,10 +384,21 @@ def generate_reports(papers_data):
 - 总论文数：{len(papers_data['papers'])}
 - 待深审：{len([p for p in papers_data['papers'] if p['stage'] == 'pending_deep_review'])}
 - 已深审：{len([p for p in papers_data['papers'] if p['stage'] == 'deep_review'])}
+- PDF 已下载：{downloaded_count}/{total_papers} 篇
 
-## 最新论文
+## PDF 下载状态
 
 """
+
+    if missing_pdfs:
+        screening_md += f"⚠️ 缺失 {len(missing_pdfs)} 篇 PDF：\n\n"
+        for m in missing_pdfs:
+            screening_md += f"- **{m['title'][:60]}...** ({m['venue']}) - {m['reason']}\n"
+        screening_md += "\n"
+    else:
+        screening_md += "✅ 所有论文 PDF 已下载\n\n"
+
+    screening_md += "## 最新论文\n\n"
     for paper in papers_data['papers'][-10:]:
         screening_md += f"- [{paper['title']}]({paper['url']}) - {paper['venue']} {paper['year']} (score: {paper['screening_score']:.2f})\n"
 
