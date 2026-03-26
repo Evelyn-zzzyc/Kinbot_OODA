@@ -1,0 +1,9 @@
+{
+  "schema_version": "1.0",
+  "dimensions": {
+    "core": ["technical_approach", "benchmark_performance", "kinbot_relevance", "engineering_feasibility", "pros_cons_summary"],
+    "optional": ["real_robot_experiments", "mapping_capability"]
+  },
+  "papers": [],
+  "last_updated": null
+}

@@ -1,0 +1,7 @@
+{
+  "tool_name": "Bash",
+  "tool_input_preview": "{\"command\":\"ls *.py\",\"description\":\"Find Python script in correct directory\"}",
+  "error": "Exit code 2\nls: cannot access '*.py': No such file or directory",
+  "timestamp": "2026-03-26T08:02:16.450Z",
+  "retry_count": 2
+}
