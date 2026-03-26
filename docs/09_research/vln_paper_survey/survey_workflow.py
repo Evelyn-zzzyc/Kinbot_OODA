@@ -477,13 +477,13 @@ def main():
         import subprocess
         os.chdir(BASE_DIR.parent.parent.parent)  # Go to repo root
 
-        # Switch to or create vln-survey branch
-        result = subprocess.run(["git", "checkout", "vln-survey"], capture_output=True)
+        # Switch to or create docs/vln-paper-survey branch
+        result = subprocess.run(["git", "checkout", "docs/vln-paper-survey"], capture_output=True)
         if result.returncode != 0:
-            subprocess.run(["git", "checkout", "-b", "vln-survey"], check=True)
-            print("Created branch: vln-survey")
+            subprocess.run(["git", "checkout", "-b", "docs/vln-paper-survey"], check=True)
+            print("Created branch: docs/vln-paper-survey")
         else:
-            print("Switched to branch: vln-survey")
+            print("Switched to branch: docs/vln-paper-survey")
 
         subprocess.run(["git", "add", "docs/09_research/vln_paper_survey/"], check=True)
         commit_msg = f"vln-survey: add {len(new_papers_unique)} papers, screen {screened_count}"
