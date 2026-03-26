@@ -295,40 +295,14 @@ Output JSON: {{"score": 0.85, "summary": "brief summary", "rationale": "why this
     }
 
 def deep_review_paper_with_claude(paper):
-    """Deep review a paper using Claude API"""
-    api_key = os.getenv("ANTHROPIC_API_KEY")
-    if not api_key:
-        return None  # Skip if no API key
+    """Deep review a paper - manual mode (requires Claude assistance)
 
-    try:
-        from anthropic import Anthropic
-        client = Anthropic(api_key=api_key)
-
-        prompt = f"""Deep review this VLN/VLA paper:
-
-Title: {paper['title']}
-Abstract: {paper.get('abstract', 'N/A')}
-Venue: {paper['venue']} {paper['year']}
-
-Extract:
-1. Technical approach (architecture, training, I/O)
-2. Benchmark results (R2R, REVERIE, etc.)
-3. Kinbot relevance (borrowable ideas for 27B Teacher + 4B Student)
-4. Engineering feasibility (model size, speed, open source)
-5. Pros and cons
-
-Output JSON with these fields."""
-
-        response = client.messages.create(
-            model="claude-3-haiku-20240307",
-            max_tokens=1500,
-            messages=[{"role": "user", "content": prompt}]
-        )
-
-        return response.content[0].text
-    except Exception as e:
-        print(f"Deep review failed: {e}")
-        return None
+    For manual deep review:
+    1. Run: python3 survey_workflow.py --list-pending
+    2. Ask Claude to review the pending papers
+    3. Claude will generate review JSON files
+    """
+    return None
 
 def generate_reports(papers_data):
     """Generate Markdown reports"""
