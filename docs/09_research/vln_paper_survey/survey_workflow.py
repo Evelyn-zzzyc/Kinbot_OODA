@@ -96,7 +96,7 @@ def search_papers_semantic_scholar():
 
         params = {
             "query": query,
-            "year": "2024-2026",
+            "year": "2025-2026",
             "fields": "title,authors,venue,year,abstract,externalIds,url,paperId",
             "limit": 20  # Reduced to avoid rate limits
         }
@@ -111,9 +111,12 @@ def search_papers_semantic_scholar():
 
             for paper in papers:
                 paper_id = paper.get("paperId")
-                if paper_id and paper_id not in seen_ids:
-                    seen_ids.add(paper_id)
-                    all_papers.append(paper)
+                year = paper.get("year")
+                # Filter: only 2025 June onwards (2025 year >= June, or 2026+)
+                if year and year >= 2025:
+                    if paper_id and paper_id not in seen_ids:
+                        seen_ids.add(paper_id)
+                        all_papers.append(paper)
 
             print(f"Query '{query}': found {len(papers)} papers")
         except requests.exceptions.HTTPError as e:
