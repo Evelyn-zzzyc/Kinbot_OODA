@@ -1,0 +1,8 @@
+{
+  "paper_id": "arXiv_2026_renobench_a_citation",
+  "stage": "screening",
+  "reviewed_at": "2026-03-27T05:51:52.673663Z",
+  "summary": "Paper about RenoBench: A Citation Parsing Benchmark...",
+  "screening_score": 0.1,
+  "screening_rationale": "Keyword-based scoring (improved algorithm)"
+}

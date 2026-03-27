@@ -1,0 +1,8 @@
+{
+  "paper_id": "arXiv_2026_s2d2_fast_decoding",
+  "stage": "screening",
+  "reviewed_at": "2026-03-27T05:51:52.670998Z",
+  "summary": "Paper about S2D2: Fast Decoding for Diffusion LLMs via Trainin...",
+  "screening_score": 0.1,
+  "screening_rationale": "Keyword-based scoring (improved algorithm)"
+}

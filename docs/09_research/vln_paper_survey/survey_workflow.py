@@ -82,6 +82,69 @@ def send_feishu_notification(message):
     except Exception as e:
         print(f"Failed to send Feishu notification: {e}")
 
+def search_papers_arxiv():
+    """Search papers from arXiv API (no rate limit)"""
+    import requests
+    import xml.etree.ElementTree as ET
+    from datetime import datetime
+
+    queries = [
+        "vision language navigation",
+        "VLN embodied AI",
+        "visual language action"
+    ]
+
+    all_papers = []
+    seen_ids = set()
+
+    for query in queries:
+        url = f"http://export.arxiv.org/api/query?search_query=all:{query.replace(' ', '+')}&start=0&max_results=50&sortBy=submittedDate&sortOrder=descending"
+
+        try:
+            resp = requests.get(url, timeout=30)
+            resp.raise_for_status()
+            root = ET.fromstring(resp.content)
+
+            ns = {'atom': 'http://www.w3.org/2005/Atom'}
+            entries = root.findall('atom:entry', ns)
+
+            for entry in entries:
+                arxiv_id = entry.find('atom:id', ns).text.split('/abs/')[-1]
+                if arxiv_id in seen_ids:
+                    continue
+
+                title = entry.find('atom:title', ns).text.strip()
+                published = entry.find('atom:published', ns).text[:4]
+                year = int(published)
+
+                if year < 2025:
+                    continue
+
+                authors = [a.find('atom:name', ns).text for a in entry.findall('atom:author', ns)]
+                abstract = entry.find('atom:summary', ns).text.strip()
+
+                paper = {
+                    'paperId': arxiv_id,
+                    'title': title,
+                    'authors': [{'name': a} for a in authors],
+                    'venue': 'arXiv',
+                    'year': year,
+                    'abstract': abstract,
+                    'url': f'https://arxiv.org/abs/{arxiv_id}',
+                    'externalIds': {'ArXiv': arxiv_id}
+                }
+
+                all_papers.append(paper)
+                seen_ids.add(arxiv_id)
+
+            print(f"arXiv query '{query}': found {len(entries)} papers")
+        except Exception as e:
+            print(f"arXiv query '{query}' failed: {e}")
+            continue
+
+    print(f"Total papers from arXiv: {len(all_papers)}")
+    return all_papers
+
 def search_papers_semantic_scholar():
     """Search papers from Semantic Scholar API"""
     import requests
@@ -160,7 +223,9 @@ def search_papers_semantic_scholar():
             continue
 
     if failed_queries == len(queries):
-        raise RuntimeError(f"All {len(queries)} Semantic Scholar queries failed. Check network/API status.")
+        print(f"WARNING: All {len(queries)} Semantic Scholar queries failed (likely rate limited).")
+        print("Falling back to arXiv API...")
+        return search_papers_arxiv()  # Fallback to arXiv
 
     print(f"Total unique papers from Semantic Scholar: {len(all_papers)} ({failed_queries}/{len(queries)} queries failed)")
     return all_papers

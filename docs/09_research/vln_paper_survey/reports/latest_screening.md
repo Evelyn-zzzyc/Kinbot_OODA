@@ -1,17 +1,17 @@
 # VLN/VLA 论文筛选报告
 
-生成时间：2026-03-27 05:47:29 UTC
+生成时间：2026-03-27 05:51:52 UTC
 
 ## 统计
 
-- 总论文数：59
+- 总论文数：173
 - 待深审：39
 - 已深审：0
-- PDF 已下载：14/59 篇
+- PDF 已下载：14/173 篇
 
 ## PDF 下载状态
 
-⚠️ 缺失 45 篇 PDF：
+⚠️ 缺失 159 篇 PDF：
 
 - **Towards Long-Horizon Vision-Language Navigation: Platform, B...** (CVPR) - No PDF URL
 - **Do Visual Imaginations Improve Vision-and-Language Navigatio...** (CVPR) - No PDF URL
@@ -58,16 +58,130 @@
 - **ToolNavigator: Dataset Generation for Small Tools Handling a...** (2025 IEEE 21st International Conference on Automation Science and Engineering (CASE)) - No PDF URL
 - **View Invariant Learning for Vision-Language Navigation in Co...** (IEEE Robotics and Automation Letters) - Download failed
 - **Generating Vision-Language Navigation Instructions Incorpora...** (Information Fusion) - Download failed
+- **ShotStream: Streaming Multi-Shot Video Generation for Intera...** (arXiv) - Download failed
+- **Less Gaussians, Texture More: 4K Feed-Forward Textured Splat...** (arXiv) - Download failed
+- **MuRF: Unlocking the Multi-Scale Potential of Vision Foundati...** (arXiv) - Download failed
+- **RefAlign: Representation Alignment for Reference-to-Video Ge...** (arXiv) - Download failed
+- **Vega: Learning to Drive with Natural Language Instructions...** (arXiv) - Download failed
+- **Drive My Way: Preference Alignment of Vision-Language-Action...** (arXiv) - Download failed
+- **PSDesigner: Automated Graphic Design with a Human-Like Creat...** (arXiv) - Download failed
+- **MegaFlow: Zero-Shot Large Displacement Optical Flow...** (arXiv) - Download failed
+- **How good was my shot? Quantifying Player Skill Level in Tabl...** (arXiv) - Download failed
+- **Training the Knowledge Base through Evidence Distillation an...** (arXiv) - Download failed
+- **Unleashing Guidance Without Classifiers for Human-Object Int...** (arXiv) - Download failed
+- **SlotVTG: Object-Centric Adapter for Generalizable Video Temp...** (arXiv) - Download failed
+- **BizGenEval: A Systematic Benchmark for Commercial Visual Con...** (arXiv) - Download failed
+- **PackForcing: Short Video Training Suffices for Long Video Sa...** (arXiv) - Download failed
+- **PixelSmile: Toward Fine-Grained Facial Expression Editing...** (arXiv) - Download failed
+- **Back to Basics: Revisiting ASR in the Age of Voice Agents...** (arXiv) - Download failed
+- **AnyHand: A Large-Scale Synthetic Dataset for RGB(-D) Hand Po...** (arXiv) - Download failed
+- **Natural-Language Agent Harnesses...** (arXiv) - Download failed
+- **No Hard Negatives Required: Concept Centric Learning Leads t...** (arXiv) - Download failed
+- **R-C2: Cycle-Consistent Reinforcement Learning Improves Multi...** (arXiv) - Download failed
+- **Out of Sight but Not Out of Mind: Hybrid Memory for Dynamic ...** (arXiv) - Download failed
+- **Seeing to Ground: Visual Attention for Hallucination-Resilie...** (arXiv) - Download failed
+- **TRACE: Object Motion Editing in Videos with First-Frame Traj...** (arXiv) - Download failed
+- **Wan-Weaver: Interleaved Multi-modal Generation via Decoupled...** (arXiv) - Download failed
+- **S2D2: Fast Decoding for Diffusion LLMs via Training-Free Sel...** (arXiv) - Download failed
+- **LEMMA: Laplacian pyramids for Efficient Marine SeMAntic Segm...** (arXiv) - Download failed
+- **Intelligent Navigation and Obstacle-Aware Fabrication for Mo...** (arXiv) - Download failed
+- **On Neural Scaling Laws for Weather Emulation through Continu...** (arXiv) - Download failed
+- **Just Zoom In: Cross-View Geo-Localization via Autoregressive...** (arXiv) - Download failed
+- **Persistent Robot World Models: Stabilizing Multi-Step Rollou...** (arXiv) - Download failed
+- **Self-Improvement of Large Language Models: A Technical Overv...** (arXiv) - Download failed
+- **Measuring What Matters -- or What's Convenient?: Robustness ...** (arXiv) - Download failed
+- **Can Users Specify Driving Speed? Bench2Drive-Speed: Benchmar...** (arXiv) - Download failed
+- **Fast-dVLA: Accelerating Discrete Diffusion VLA to Real-Time ...** (arXiv) - Download failed
+- **A Mentalistic Interface for Probing Folk-Psychological Attri...** (arXiv) - Download failed
+- **Colon-Bench: An Agentic Workflow for Scalable Dense Lesion A...** (arXiv) - Download failed
+- **RenoBench: A Citation Parsing Benchmark...** (arXiv) - Download failed
+- **Beyond Via: Analysis and Estimation of the Impact of Large L...** (arXiv) - Download failed
+- **Designing Any Imaging System from Natural Language: Agent-Co...** (arXiv) - Download failed
+- **Is Mathematical Problem-Solving Expertise in Large Language ...** (arXiv) - Download failed
+- **LanteRn: Latent Visual Structured Reasoning...** (arXiv) - Download failed
+- **PICon: A Multi-Turn Interrogation Framework for Evaluating P...** (arXiv) - Download failed
+- **Demographic Fairness in Multimodal LLMs: A Benchmark of Gend...** (arXiv) - Download failed
+- **Kakeya Conjecture and Conditional Kolmogorov Complexity...** (arXiv) - Download failed
+- **DeepFAN, a transformer-based deep learning model for human-a...** (arXiv) - Download failed
+- **Quantum Circuit Repair by Gate Prioritisation...** (arXiv) - Download failed
+- **UNIC: Neural Garment Deformation Field for Real-time Clothed...** (arXiv) - Download failed
+- **Challenge-Response Authentication for LEO Satellite Channels...** (arXiv) - Download failed
+- **Hierarchy-Guided Multimodal Representation Learning for Taxo...** (arXiv) - Download failed
+- **Are LLMs Overkill for Databases?: A Study on the Finiteness ...** (arXiv) - Download failed
+- **SoftMimicGen: A Data Generation System for Scalable Robot Le...** (arXiv) - Download failed
+- **A Unified Memory Perspective for Probabilistic Trustworthy A...** (arXiv) - Download failed
+- **Longitudinal Digital Phenotyping for Early Cognitive-Motor S...** (arXiv) - Download failed
+- **SHAPR: Operationalising Human-AI Collaborative Research Thro...** (arXiv) - Download failed
+- **TAAC: A gate into Trustable Audio Affective Computing...** (arXiv) - Download failed
+- **Towards Embodied AI with MuscleMimic: Unlocking full-body mu...** (arXiv) - Download failed
+- **Unveiling the Resilience of LLM-Enhanced Search Engines agai...** (arXiv) - Download failed
+- **EcoThink: A Green Adaptive Inference Framework for Sustainab...** (arXiv) - Download failed
+- **LILAC: Language-Conditioned Object-Centric Optical Flow for ...** (arXiv) - Download failed
+- **From Manipulation to Mistrust: Explaining Diverse Micro-Vide...** (arXiv) - Download failed
+- **VideoWeaver: Multimodal Multi-View Video-to-Video Transfer f...** (arXiv) - Download failed
+- **Modernising Reinforcement Learning-Based Navigation for Embo...** (arXiv) - Download failed
+- **Decidable By Construction: Design-Time Verification for Trus...** (arXiv) - Download failed
+- **Shape and Substance: Dual-Layer Side-Channel Attacks on Loca...** (arXiv) - Download failed
+- **ALPS: Automated Least-Privilege Enforcement for Securing Ser...** (arXiv) - Download failed
+- **LACY: Simulating Expert Mentoring for Software Onboarding wi...** (arXiv) - Download failed
+- **Does Structured Intent Representation Generalize? A Cross-La...** (arXiv) - Download failed
+- **PRISM: Dynamic Primitive-Based Forecasting for Large-Scale G...** (arXiv) - Download failed
+- **From Intent to Evidence: A Categorical Approach for Structur...** (arXiv) - Download failed
+- **Beyond Detection: Rethinking Education in the Age of AI-writ...** (arXiv) - Download failed
+- **Evaluating Language Models for Harmful Manipulation...** (arXiv) - Download failed
+- **On the Vulnerability of Deep Automatic Modulation Classifier...** (arXiv) - Download failed
+- **MolQuest: A Benchmark for Agentic Evaluation of Abductive Re...** (arXiv) - Download failed
+- **Does Explanation Correctness Matter? Linking Computational X...** (arXiv) - Download failed
+- **Beyond Benchmarks: How Users Evaluate AI Chat Assistants...** (arXiv) - Download failed
+- **A Wireless World Model for AI-Native 6G Networks...** (arXiv) - Download failed
+- **CIV-DG: Conditional Instrumental Variables for Domain Genera...** (arXiv) - Download failed
+- **The Competence Shadow: Theory and Bounds of AI Assistance in...** (arXiv) - Download failed
+- **CardioDiT: Latent Diffusion Transformers for 4D Cardiac MRI ...** (arXiv) - Download failed
+- **Knowledge-Guided Retrieval-Augmented Generation for Zero-Sho...** (arXiv) - Download failed
+- **VolDiT: Controllable Volumetric Medical Image Synthesis with...** (arXiv) - Download failed
+- **Factors Influencing the Quality of AI-Generated Code: A Synt...** (arXiv) - Download failed
+- **AnyDoc: Enhancing Document Generation via Large-Scale HTML/C...** (arXiv) - Download failed
+- **Do LLMs Know What They Know? Measuring Metacognitive Efficie...** (arXiv) - Download failed
+- **ElephantBroker: A Knowledge-Grounded Cognitive Runtime for T...** (arXiv) - Download failed
+- **Process-Aware AI for Rainfall-Runoff Modeling: A Mass-Conser...** (arXiv) - Download failed
+- **Pixelis: Reasoning in Pixels, from Seeing to Acting...** (arXiv) - Download failed
+- **An Explainable Ensemble Learning Framework for Crop Classifi...** (arXiv) - Download failed
+- **GeoNDC: A Queryable Neural Data Cube for Planetary-Scale Ear...** (arXiv) - Download failed
+- **Epistemic Compression: The Case for Deliberate Ignorance in ...** (arXiv) - Download failed
+- **A Public Theory of Distillation Resistance via Constraint-Co...** (arXiv) - Download failed
+- **Imperative Interference: Social Register Shapes Instruction ...** (arXiv) - Download failed
+- **Efficient Detection of Bad Benchmark Items with Novel Scalab...** (arXiv) - Download failed
+- **Rethinking Health Agents: From Siloed AI to Collaborative De...** (arXiv) - Download failed
+- **Exons-Detect: Identifying and Amplifying Exonic Tokens via H...** (arXiv) - Download failed
+- **Group-Differentiated Discourse on Generative AI in High Scho...** (arXiv) - Download failed
+- **Shopping with a Platform AI Assistant: Who Adopts, When in t...** (arXiv) - Download failed
+- **Spectrum of SL(2,R)-characters: the once-punctured torus cas...** (arXiv) - Download failed
+- **EPAR: Electromagnetic Pathways to Architectural Reliability ...** (arXiv) - Download failed
+- **Prediction of new superconducting bilayers heterostructures ...** (arXiv) - Download failed
+- **Visual or Textual: Effects of Explanation Format and Persona...** (arXiv) - Download failed
+- **An effective cosmological constant as black hole primary hai...** (arXiv) - Download failed
+- **Dissolution of a two-component drop onto macrophase due to s...** (arXiv) - Download failed
+- **Towards Generalizable Robotic Data Flywheel: High-Dimensiona...** (arXiv) - Download failed
+- **GeoHeight-Bench: Towards Height-Aware Multimodal Reasoning i...** (arXiv) - Download failed
+- **Revisiting On-Policy Distillation: Empirical Failure Modes a...** (arXiv) - Download failed
+- **The modal theory of the category of sets...** (arXiv) - Download failed
+- **Humans vs Vision-Language Models: A Unified Measure of Narra...** (arXiv) - Download failed
+- **Synchronous Signal Temporal Logic for Decidable Verification...** (arXiv) - Download failed
+- **Beyond the Golden Data: Resolving the Motion-Vision Quality ...** (arXiv) - Download failed
+- **Investigating the Fundamental Limit: A Feasibility Study of ...** (arXiv) - Download failed
+- **CHIRP dataset: towards long-term, individual-level, behavior...** (arXiv) - Download failed
+- **Anisotropic light-electron-phonon coupling and ultrafast car...** (arXiv) - Download failed
+- **An Experimental Comparison of the Most Popular Approaches to...** (arXiv) - Download failed
 
 ## 最新论文
 
-- [LogisticsVLN: Vision-Language Navigation for Low-Altitude Terminal Delivery Based on Agentic UAVs](https://www.semanticscholar.org/paper/caf6898bd4395080fd388054bb6b9b62ac667ac2) - 2025 IEEE 28th International Conference on Intelligent Transportation Systems (ITSC) 2025 (score: 0.70)
-- [DyNaVLM: Zero-Shot Vision-Language Navigation System with Dynamic Viewpoints and Self-Refining Graph Memory](https://www.semanticscholar.org/paper/d7f69aabc6d579935cf67f5ab27edf971d9daff6) - arXiv.org 2025 (score: 0.70)
-- [OpenVLN: Open-world aerial Vision-Language Navigation](https://www.semanticscholar.org/paper/894cfc3f04b2d4d325109d3a672384a38e7fb9eb) - arXiv.org 2025 (score: 0.70)
-- [Efficient-VLN: A Training-Efficient Vision-Language Navigation Model](https://www.semanticscholar.org/paper/91626567b5cd7fdca205f306662598fccf0b140e) - arXiv.org 2025 (score: 0.70)
-- [SE-VLN: A Self-Evolving Vision-Language Navigation Framework Based on Multimodal Large Language Models](https://www.semanticscholar.org/paper/b29d3d69c36c6ebad3a492f1ee4391372d8de20c) - arXiv.org 2025 (score: 0.70)
-- [Unseen from Seen: Rewriting Observation-Instruction Using Foundation Models for Augmenting Vision-Language Navigation](https://www.semanticscholar.org/paper/48fb9bdc370d8c26a4d27fcecd8e2be51e4c5d92) - IEEE Transactions on Neural Networks and Learning Systems 2025 (score: 0.70)
-- [Active Test-time Vision-Language Navigation](https://www.semanticscholar.org/paper/46bd34cf7ff6e3b7fc63502efa587a880344085e) - arXiv.org 2025 (score: 0.70)
-- [ToolNavigator: Dataset Generation for Small Tools Handling and Vision-Language Navigation in Construction Sites via Simulation for Robots](https://www.semanticscholar.org/paper/c998ebc6fbfdf3942d96b1feca250367fd4c8a2d) - 2025 IEEE 21st International Conference on Automation Science and Engineering (CASE) 2025 (score: 0.70)
-- [View Invariant Learning for Vision-Language Navigation in Continuous Environments](https://www.semanticscholar.org/paper/606f20e6ccb10fc934b12f5fdeeb7d657d603ac3) - IEEE Robotics and Automation Letters 2025 (score: 0.70)
-- [Generating Vision-Language Navigation Instructions Incorporated Fine-Grained Alignment Annotations](https://www.semanticscholar.org/paper/8c92eecab54aa4f24be7434c6ce40e3d76a534d8) - Information Fusion 2025 (score: 0.72)
+- [GeoHeight-Bench: Towards Height-Aware Multimodal Reasoning in Remote Sensing](https://arxiv.org/abs/2603.25565v1) - arXiv 2026 (score: 0.10)
+- [Revisiting On-Policy Distillation: Empirical Failure Modes and Simple Fixes](https://arxiv.org/abs/2603.25562v1) - arXiv 2026 (score: 0.10)
+- [The modal theory of the category of sets](https://arxiv.org/abs/2603.25550v1) - arXiv 2026 (score: 0.10)
+- [Humans vs Vision-Language Models: A Unified Measure of Narrative Coherence](https://arxiv.org/abs/2603.25537v1) - arXiv 2026 (score: 0.10)
+- [Synchronous Signal Temporal Logic for Decidable Verification of Cyber-Physical Systems](https://arxiv.org/abs/2603.25531v1) - arXiv 2026 (score: 0.10)
+- [Beyond the Golden Data: Resolving the Motion-Vision Quality Dilemma via Timestep Selective Training](https://arxiv.org/abs/2603.25527v1) - arXiv 2026 (score: 0.10)
+- [Investigating the Fundamental Limit: A Feasibility Study of Hybrid-Neural Archival](https://arxiv.org/abs/2603.25526v1) - arXiv 2026 (score: 0.10)
+- [CHIRP dataset: towards long-term, individual-level, behavioral monitoring of bird populations in the wild](https://arxiv.org/abs/2603.25524v1) - arXiv 2026 (score: 0.10)
+- [Anisotropic light-electron-phonon coupling and ultrafast carrier separation in ferroelectric BaTiO$_3$](https://arxiv.org/abs/2603.25521v1) - arXiv 2026 (score: 0.10)
+- [An Experimental Comparison of the Most Popular Approaches to Fake News Detection](https://arxiv.org/abs/2603.25501v1) - arXiv 2026 (score: 0.10)
