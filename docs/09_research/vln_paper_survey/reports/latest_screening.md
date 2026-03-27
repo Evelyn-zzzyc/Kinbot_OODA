@@ -1,17 +1,17 @@
 # VLN/VLA 论文筛选报告
 
-生成时间：2026-03-27 05:46:46 UTC
+生成时间：2026-03-27 05:47:29 UTC
 
 ## 统计
 
-- 总论文数：42
-- 待深审：22
+- 总论文数：59
+- 待深审：39
 - 已深审：0
-- PDF 已下载：14/42 篇
+- PDF 已下载：14/59 篇
 
 ## PDF 下载状态
 
-⚠️ 缺失 28 篇 PDF：
+⚠️ 缺失 45 篇 PDF：
 
 - **Towards Long-Horizon Vision-Language Navigation: Platform, B...** (CVPR) - No PDF URL
 - **Do Visual Imaginations Improve Vision-and-Language Navigatio...** (CVPR) - No PDF URL
@@ -41,16 +41,33 @@
 - **EMKG: Embodied Memory Knowledge Graphs for Object-Goal Navig...** (IEEE Robotics and Automation Letters) - No PDF URL
 - **EmergeNav: Structured Embodied Inference for Zero-Shot Visio...** () - Download failed
 - **pFedNavi: Structure-Aware Personalized Federated Vision-Lang...** () - Download failed
+- **Openfly: A comprehensive platform for aerial vision-language...** () - Download failed
+- **JanusVLN: Decoupling Semantics and Spatiality with Dual Impl...** (arXiv.org) - Download failed
+- **OpenFly: A Versatile Toolchain and Large-scale Benchmark for...** (arXiv.org) - No PDF URL
+- **Aux-Think: Exploring Reasoning Strategies for Data-Efficient...** (arXiv.org) - Download failed
+- **VL-Nav: A Neuro-Symbolic Approach for Reasoning-based Vision...** () - Download failed
+- **MonoDream: Monocular Vision-Language Navigation with Panoram...** (Proceedings of the AAAI Conference on Artificial Intelligence) - Download failed
+- **Grounded Vision-Language Navigation for UAVs with Open-Vocab...** (arXiv.org) - Download failed
+- **LogisticsVLN: Vision-Language Navigation for Low-Altitude Te...** (2025 IEEE 28th International Conference on Intelligent Transportation Systems (ITSC)) - Download failed
+- **DyNaVLM: Zero-Shot Vision-Language Navigation System with Dy...** (arXiv.org) - Download failed
+- **OpenVLN: Open-world aerial Vision-Language Navigation...** (arXiv.org) - Download failed
+- **Efficient-VLN: A Training-Efficient Vision-Language Navigati...** (arXiv.org) - Download failed
+- **SE-VLN: A Self-Evolving Vision-Language Navigation Framework...** (arXiv.org) - Download failed
+- **Unseen from Seen: Rewriting Observation-Instruction Using Fo...** (IEEE Transactions on Neural Networks and Learning Systems) - Download failed
+- **Active Test-time Vision-Language Navigation...** (arXiv.org) - Download failed
+- **ToolNavigator: Dataset Generation for Small Tools Handling a...** (2025 IEEE 21st International Conference on Automation Science and Engineering (CASE)) - No PDF URL
+- **View Invariant Learning for Vision-Language Navigation in Co...** (IEEE Robotics and Automation Letters) - Download failed
+- **Generating Vision-Language Navigation Instructions Incorpora...** (Information Fusion) - Download failed
 
 ## 最新论文
 
-- [VLA-Pruner: Temporal-Aware Dual-Level Visual Token Pruning for Efficient Vision-Language-Action Inference](https://www.semanticscholar.org/paper/9a4bed05749a66fc2662fab37d9edbab8e5c3017) - arXiv.org 2025 (score: 0.10)
-- [MiVLA: Towards Generalizable Vision-Language-Action Model with Human-Robot Mutual Imitation Pre-training](https://www.semanticscholar.org/paper/e16f844568466126c2e704510af56870750d68a0) - arXiv.org 2025 (score: 0.10)
-- [Bring My Cup! Personalizing Vision-Language-Action Models with Visual Attentive Prompting](https://www.semanticscholar.org/paper/c8702d791db3820d55cec32531fd2a043f24a762) - arXiv.org 2025 (score: 0.10)
-- [AutoSpatial: Visual-Language Reasoning for Social Robot Navigation through Efficient Spatial Reasoning Learning](https://www.semanticscholar.org/paper/974aeb60ce25e4fc001236510276f8b77ee3fea2) - IEEE/RJS International Conference on Intelligent RObots and Systems 2025 (score: 0.12)
-- [LIBERO-Plus: In-depth Robustness Analysis of Vision-Language-Action Models](https://www.semanticscholar.org/paper/dfa5ba43d6df553bb3a8cf3fc1cf2d1210cc10c3) - arXiv.org 2025 (score: 0.10)
-- [Dita: Scaling Diffusion Transformer for Generalist Vision-Language-Action Policy](https://www.semanticscholar.org/paper/7aa2936c237c86f33ad413eeeabca6b123515c57) - arXiv.org 2025 (score: 0.10)
-- [DexGraspVLA: A Vision-Language-Action Framework Towards General Dexterous Grasping](https://www.semanticscholar.org/paper/db0f446a03c7cda8bb812a8ccf53ddee53055e85) - Proceedings of the AAAI Conference on Artificial Intelligence 2025 (score: 0.10)
-- [EMKG: Embodied Memory Knowledge Graphs for Object-Goal Navigation in Dynamic Open Worlds](https://www.semanticscholar.org/paper/376d2ac0fa5efcf9cf039958e924a44addc7a1df) - IEEE Robotics and Automation Letters 2026 (score: 0.70)
-- [EmergeNav: Structured Embodied Inference for Zero-Shot Vision-and-Language Navigation in Continuous Environments](https://www.semanticscholar.org/paper/fa073d7103353b072eed003545e2527f3f8343da) -  2026 (score: 0.80)
-- [pFedNavi: Structure-Aware Personalized Federated Vision-Language Navigation for Embodied AI](https://www.semanticscholar.org/paper/9fd50ad339046c690281ec779027597eb2ea845f) -  2026 (score: 0.70)
+- [LogisticsVLN: Vision-Language Navigation for Low-Altitude Terminal Delivery Based on Agentic UAVs](https://www.semanticscholar.org/paper/caf6898bd4395080fd388054bb6b9b62ac667ac2) - 2025 IEEE 28th International Conference on Intelligent Transportation Systems (ITSC) 2025 (score: 0.70)
+- [DyNaVLM: Zero-Shot Vision-Language Navigation System with Dynamic Viewpoints and Self-Refining Graph Memory](https://www.semanticscholar.org/paper/d7f69aabc6d579935cf67f5ab27edf971d9daff6) - arXiv.org 2025 (score: 0.70)
+- [OpenVLN: Open-world aerial Vision-Language Navigation](https://www.semanticscholar.org/paper/894cfc3f04b2d4d325109d3a672384a38e7fb9eb) - arXiv.org 2025 (score: 0.70)
+- [Efficient-VLN: A Training-Efficient Vision-Language Navigation Model](https://www.semanticscholar.org/paper/91626567b5cd7fdca205f306662598fccf0b140e) - arXiv.org 2025 (score: 0.70)
+- [SE-VLN: A Self-Evolving Vision-Language Navigation Framework Based on Multimodal Large Language Models](https://www.semanticscholar.org/paper/b29d3d69c36c6ebad3a492f1ee4391372d8de20c) - arXiv.org 2025 (score: 0.70)
+- [Unseen from Seen: Rewriting Observation-Instruction Using Foundation Models for Augmenting Vision-Language Navigation](https://www.semanticscholar.org/paper/48fb9bdc370d8c26a4d27fcecd8e2be51e4c5d92) - IEEE Transactions on Neural Networks and Learning Systems 2025 (score: 0.70)
+- [Active Test-time Vision-Language Navigation](https://www.semanticscholar.org/paper/46bd34cf7ff6e3b7fc63502efa587a880344085e) - arXiv.org 2025 (score: 0.70)
+- [ToolNavigator: Dataset Generation for Small Tools Handling and Vision-Language Navigation in Construction Sites via Simulation for Robots](https://www.semanticscholar.org/paper/c998ebc6fbfdf3942d96b1feca250367fd4c8a2d) - 2025 IEEE 21st International Conference on Automation Science and Engineering (CASE) 2025 (score: 0.70)
+- [View Invariant Learning for Vision-Language Navigation in Continuous Environments](https://www.semanticscholar.org/paper/606f20e6ccb10fc934b12f5fdeeb7d657d603ac3) - IEEE Robotics and Automation Letters 2025 (score: 0.70)
+- [Generating Vision-Language Navigation Instructions Incorporated Fine-Grained Alignment Annotations](https://www.semanticscholar.org/paper/8c92eecab54aa4f24be7434c6ce40e3d76a534d8) - Information Fusion 2025 (score: 0.72)

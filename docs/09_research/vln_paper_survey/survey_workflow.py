@@ -503,7 +503,6 @@ def main():
     summary = f"""VLN 论文调研工作流执行完成
 - 新发现论文：{len(new_papers_unique)} 篇
 - 筛选论文：{screened_count} 篇
-- 深度审查：{deep_reviewed_count} 篇
 - 剩余待深审：{remaining_pending} 篇
 
 Git commit: {commit_msg if screened_count > 0 else 'no changes'}
