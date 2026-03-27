@@ -165,8 +165,7 @@
    │   └── reviews/
    ├── reports/
    │   ├── latest_screening.md
-   │   ├── changelog.md
-   │   └── comparison_table.md
+   │   └── changelog.md
    ├── survey_workflow.py
    ├── .env
    └── README.md
@@ -228,7 +227,6 @@
 ✅ **自动报告生成**
 - latest_screening.md（最新筛选，区分顶会/预印本）
 - changelog.md（变更记录）
-- comparison_table.md（对比表）
 
 ✅ **Git 集成**
 - 固定 docs/vln-paper-survey 分支
@@ -261,8 +259,7 @@ docs/09_research/vln_paper_survey/
 │   └── {paper_id}.pdf
 ├── reports/
 │   ├── latest_screening.md      # 最新筛选报告
-│   ├── changelog.md             # 变更记录
-│   └── comparison_table.md      # 对比汇总表
+│   └── changelog.md             # 变更记录
 ├── scripts/                     # 辅助脚本
 │   ├── list_pending.py         # 列出待深审论文
 │   ├── prepare_review.py       # 生成审查提示
@@ -400,8 +397,8 @@ python3 scripts/prepare_review.py <paper_id>
 - 可集成 Claude API 实现全自动深度审查
 
 **3. 对比表生成**
-- comparison_table.md 功能待完善
-- 需要实现跨论文的多维度对比
+- comparison_table.md 功能计划中，暂未实现
+- 需要实现跨论文的多维度对比（技术方案、性能、工程化可行性等）
 
 **4. PDF 解析**
 - 当前只下载 PDF

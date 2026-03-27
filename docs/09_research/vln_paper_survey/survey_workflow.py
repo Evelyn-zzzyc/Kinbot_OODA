@@ -110,6 +110,7 @@ def search_papers_semantic_scholar():
 
     all_papers = []
     seen_ids = set()
+    failed_queries = 0
 
     for i, query in enumerate(queries):
         if i > 0:
@@ -135,22 +136,33 @@ def search_papers_semantic_scholar():
                 year = paper.get("year")
                 # Filter: only 2025 June onwards (2025 year >= June, or 2026+)
                 if year and year >= 2025:
+                    # For 2025, check if conference is after June cutoff
+                    if year == 2025:
+                        venue = paper.get('venue', '')
+                        after_cutoff = is_after_cutoff(venue, year)
+                        if after_cutoff is False:
+                            continue
                     if paper_id and paper_id not in seen_ids:
                         seen_ids.add(paper_id)
                         all_papers.append(paper)
 
             print(f"Query '{query}': found {len(papers)} papers")
         except requests.exceptions.HTTPError as e:
+            failed_queries += 1
             if e.response.status_code == 429:
                 print(f"Query '{query}': rate limited (429). Consider adding SEMANTIC_SCHOLAR_API_KEY to .env")
             else:
                 print(f"Query '{query}' failed: {e}")
             continue
         except Exception as e:
+            failed_queries += 1
             print(f"Query '{query}' failed: {e}")
             continue
 
-    print(f"Total unique papers from Semantic Scholar: {len(all_papers)}")
+    if failed_queries == len(queries):
+        raise RuntimeError(f"All {len(queries)} Semantic Scholar queries failed. Check network/API status.")
+
+    print(f"Total unique papers from Semantic Scholar: {len(all_papers)} ({failed_queries}/{len(queries)} queries failed)")
     return all_papers
 
 def normalize_title(title):
@@ -221,9 +233,10 @@ def convert_to_paper_entry(paper):
     venue = paper.get("venue", "Unknown")
     year = paper.get("year", 2024)
 
-    # Generate paper_id
+    # Generate paper_id (sanitize venue to remove invalid filename chars)
     title_words = re.findall(r'\w+', title.lower())[:3]
-    paper_id = f"{venue}_{year}_{'_'.join(title_words)}"
+    venue_safe = re.sub(r'[^\w\s-]', '', venue).replace(' ', '_')
+    paper_id = f"{venue_safe}_{year}_{'_'.join(title_words)}"
 
     return {
         "id": paper_id,
@@ -315,43 +328,6 @@ Output JSON: {{"score": 0.85, "summary": "brief summary", "rationale": "why this
     except Exception as e:
         print(f"Claude API screening failed: {e}")
         return {"screening_score": 0.5, "summary": "Screening failed", "screening_rationale": str(e)}
-    """Convert API result to papers.json entry"""
-    import re
-
-    title = paper.get("title", "Unknown")
-    venue = paper.get("venue", "Unknown")
-    year = paper.get("year", 2024)
-
-    # Generate paper_id
-    title_words = re.findall(r'\w+', title.lower())[:3]
-    paper_id = f"{venue}_{year}_{'_'.join(title_words)}"
-
-    return {
-        "id": paper_id,
-        "title": title,
-        "authors": [a.get("name", "") for a in paper.get("authors", [])],
-        "venue": venue,
-        "year": year,
-        "abstract": paper.get("abstract", ""),
-        "url": paper.get("url", ""),
-        "pdf_url": paper.get("externalIds", {}).get("ArXiv", ""),
-        "doi": paper.get("externalIds", {}).get("DOI", ""),
-        "keywords": [],
-        "discovered_at": datetime.utcnow().isoformat() + "Z",
-        "stage": "screening",
-        "screening_score": 0.0,
-        "relevance_to_kinbot": None
-    }
-
-def deep_review_paper_with_claude(paper):
-    """Deep review a paper - manual mode (requires Claude assistance)
-
-    For manual deep review:
-    1. Run: python3 survey_workflow.py --list-pending
-    2. Ask Claude to review the pending papers
-    3. Claude will generate review JSON files
-    """
-    return None
 
 def generate_reports(papers_data):
     """Generate Markdown reports"""
@@ -489,38 +465,7 @@ def main():
         save_papers(papers_data)
         print(f"Screened {screened_count} papers, {len(pending_deep_review)} pending deep review")
 
-    # Stage C: Deep Review (max 5 papers per run)
-    print("\n[Stage C] Deep reviewing papers...")
-    deep_reviewed_count = 0
-    max_deep_review = 5
-
-    pending_papers = [p for p in papers_data["papers"] if p["stage"] == "pending_deep_review"][:max_deep_review]
-
-    for paper in pending_papers:
-        print(f"Deep reviewing: {paper['title'][:50]}...")
-        result = deep_review_paper_with_claude(paper)
-
-        if result:
-            # Update review file
-            review_file = DATA_DIR / "reviews" / f"{paper['id']}.json"
-            with open(review_file, "r") as f:
-                review_data = json.load(f)
-
-            review_data["stage"] = "deep_review"
-            review_data["deep_review_content"] = result
-            review_data["deep_reviewed_at"] = datetime.utcnow().isoformat() + "Z"
-
-            with open(review_file, "w") as f:
-                json.dump(review_data, f, indent=2, ensure_ascii=False)
-
-            paper["stage"] = "deep_review"
-            deep_reviewed_count += 1
-
-    if deep_reviewed_count > 0:
-        save_papers(papers_data)
-        print(f"Deep reviewed {deep_reviewed_count} papers")
-
-    # Stage D: Generate reports
+    # Stage C: Generate reports
     print("\n[Stage D] Generating reports...")
     generate_reports(papers_data)
 

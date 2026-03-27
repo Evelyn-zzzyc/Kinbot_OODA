@@ -52,6 +52,7 @@ vln_paper_survey/
 ├── reports/
 │   ├── latest_screening.md    # 筛选报告
 │   └── changelog.md           # 变更记录
+│   # 注：comparison_table.md 功能计划中，暂未实现
 ├── .env                       # 配置文件（Feishu webhook）
 └── .env.example               # 配置模板
 ```
@@ -75,7 +76,7 @@ vln_paper_survey/
 1. **自动搜索**：每周搜索新论文（Semantic Scholar API）
 2. **第一阶段筛选**：关键词匹配评分
 3. **标记待深审**：评分 ≥0.7 的论文
-4. **手动深度审查**：你触发时 Claude 帮你完成
+4. **手动深度审查**：完全手动流程，使用辅助脚本生成提示后由 Claude 协助审查
 5. **生成报告**：自动更新 Markdown 报告
 6. **Git 提交**：提交到 `docs/vln-paper-survey` 分支
 7. **飞书通知**：发送运行摘要

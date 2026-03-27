@@ -1,7 +1,7 @@
 {
   "tool_name": "Bash",
-  "tool_input_preview": "{\"command\":\"ls *.py\",\"description\":\"Find Python script in correct directory\"}",
-  "error": "Exit code 2\nls: cannot access '*.py': No such file or directory",
-  "timestamp": "2026-03-26T08:02:16.450Z",
-  "retry_count": 2
+  "tool_input_preview": "{\"command\":\"python3 survey_workflow.py 2>&1\",\"timeout\":120000,\"description\":\"Run workflow in default test mode\"}",
+  "error": "Exit code 1\nVLN Paper Survey Workflow\n==================================================\n\n[Stage A] Searching papers...\nLoaded 19 existing papers\nQuery 'vision language navigation': rate limited (429). Consider adding SEMANTIC_SCHOLAR_API_KEY to .env\nQuery 'VLN embodied navigation': rate limited (429). Consider adding SEMANTIC_SCHOLAR_API_KEY to .env\nQuery 'visual language action robot': rate limited (429). Consider adding SEMANTIC_SCHOLAR_API_KEY to .env\nTraceback (most recent call last):\n  Fil...",
+  "timestamp": "2026-03-27T05:40:24.986Z",
+  "retry_count": 1
 }
